@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LibraryApi.Models.Reader>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddReader">Create New</a>
+</p>
+<p>
+    Введите ФИО (часть ФИО) читателя
+</p>
+<form method="post" asp-action="ReaderSearch">
+    <p>
+        <input type="text" name="name" />
+    </p>
+    <p>
+        <input type="submit" value="Искать вхождения" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FullName
+                </td>
+                <td>
+                    @item.Birthday
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="DeleteReader" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="FullInfo" asp-route-id="@item.Id">More Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

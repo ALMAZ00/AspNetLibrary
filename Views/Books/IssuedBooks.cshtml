@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LibraryApi.Models.VIewModels.GivingBookViewModel>
+
+@{
+    ViewData["Title"] = "IssuedBooks";
+}
+
+<h1>IssuedBooks</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Release Date
+            </th>
+            <th>
+                Reader Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.Book.Name
+            </td>
+            <td>
+                @item.Book.Author
+            </td>
+            <td>
+                @item.Book.ReleaseDate
+            </td>
+            <td>
+                @item.Reader.FullName
+            </td>
+        </tr>
+        }
+</tbody>
+</table>

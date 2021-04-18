@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LibraryApi.Models.VIewModels.GivingBookViewModel>
+
+@{
+    ViewData["Title"] = "GiveBook";
+}
+
+<h1>GiveBook</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Full Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.First().Book.Name
+            </td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Reader.FullName
+                </td>
+                <td>
+                    <a asp-controller="Books" asp-action="GiveBookForReader" asp- asp-route-BookId="@item.BookId"
+                    asp-route-ReaderId="@item.ReaderId"
+                    >Give Book for reader</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,42 @@
+﻿@model LibraryApi.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h1>Details</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Release Date
+            </th>
+            <th>
+                Count
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Name
+            </td>
+            <td>
+                @Model.Author
+            </td>
+            <td>
+                @Model.ReleaseDate
+            </td>
+            <td>
+                @Model.Count
+            </td>
+        </tr>
+    </tbody>
+</table>

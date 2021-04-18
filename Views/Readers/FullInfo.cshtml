@@ -1,0 +1,60 @@
+﻿@model LibraryApi.Models.VIewModels.ReaderViewModel
+@{
+    ViewData["Title"] = "FullInfo";
+}
+
+<h1>FullInfo</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Reader.FullName
+            </td>
+            <td>
+                @Model.Reader.Birthday
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Books)
+        {
+        <tr>
+            <th>
+                @book.Name
+            </th>
+            <th>
+                @book.Author
+            </th>
+            <td>
+                <a asp-controller="Books" asp-action="ReturnBook" asp-route-id="@book.Id">Return Book</a>
+            </td>
+            <th></th>
+        </tr>
+        }
+    </tbody>
+</table>

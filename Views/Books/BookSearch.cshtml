@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LibraryApi.Models.Book>
+
+@{
+    ViewData["Title"] = "BookSearch";
+}
+
+<h1>BookSearch</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Release Date
+            </th>
+            <th>
+                Count
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Author
+                </td>
+                <td>
+                    @item.ReleaseDate
+                </td>
+                <td>
+                    @item.Count
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

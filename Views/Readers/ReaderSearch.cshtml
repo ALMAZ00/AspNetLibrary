@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LibraryApi.Models.Reader>
+
+@{
+    ViewData["Title"] = "ReaderSearch";
+}
+
+<h1>ReaderSearch</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FullName
+                </td>
+                <td>
+                    @item.Birthday
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
